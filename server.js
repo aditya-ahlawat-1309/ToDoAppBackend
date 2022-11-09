@@ -95,6 +95,7 @@ app.post("/todos", async (req, res) => {
   const [, token] = authorization.split(" ");
   const [username, password] = token.split(":");
   const todosItems = req.body;
+  console.log(todosItems);
   const user = await User.findOne({ username }).exec();
   if (!user || user.password !== password) {
     res.status(403);
